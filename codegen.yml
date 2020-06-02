@@ -1,0 +1,45 @@
+schema:
+  - https://api.spacex.land/graphql/
+documents:
+  - src/**/*.graphql
+generates:
+  ./src/app/services/spacexGraphql.service.ts:
+    plugins:
+      - typescript:
+          constEnums: false
+          enumsAsTypes: false
+          futureProofEnums: false
+          enumsAsConst: false
+          onlyOperationTypes: false
+          immutableTypes: false
+          maybeValue: T | null
+          noExport: false
+          enumPrefix: true
+          fieldWrapperValue: T
+          wrapFieldDefinitions: false
+          skipTypename: false
+          nonOptionalTypename: false
+      - typescript-operations:
+          immutableTypes: false
+          flattenGeneratedTypes: false
+          noExport: false
+          preResolveTypes: false
+          dedupeOperationSuffix: false
+          omitOperationSuffix: false
+          exportFragmentSpreadSubTypes: false
+          enumPrefix: true
+          fieldWrapperValue: T
+          wrapFieldDefinitions: false
+          onlyOperationTypes: false
+          skipTypename: false
+          nonOptionalTypename: false
+      - typescript-apollo-angular:
+          sdkClass: false
+          querySuffix: GQL
+          mutationSuffix: GQL
+          subscriptionSuffix: GQL
+          apolloAngularPackage: 'apollo-angular'
+          skipTypename: false
+          nonOptionalTypename: false
+     
+         
